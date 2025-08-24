@@ -3,11 +3,26 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:context="http://www.springframework.org/schema/context"
   xmlns:p="http://www.springframework.org/schema/p"
+
   xsi:schemaLocation="http://www.springframework.org/schema/beans
   https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.example.constructorinj.Character" name="CharacterBean">
+    <constructor-arg name="Behaviour" value="This person bears a nice character" />
+   
+    </bean>
 
     <bean class="com.example.constructorinj.Person" name="PersonBean">
     <constructor-arg name="name" value="amit"/>
     <constructor-arg name="personid" value="1382"/>
+    <constructor-arg name="Chars" >
+    <ref bean="CharacterBean" />
+    </constructor-arg>
+    <constructor-arg name="phoens" >
+    <list>
+    <value >431532523</value>
+    <value >543235667</value>
+    </list>
+     </constructor-arg>
     </bean>
   </beans>
